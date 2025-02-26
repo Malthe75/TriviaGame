@@ -1,8 +1,32 @@
 h1{
     text-align: center;
     color:crimson;
-    font-size: 128px;
+    font-size: 150px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button{
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 96px;
+    margin: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: darkgreen;
+}
+
+div{
+    text-align: center;
+}
+p{
+    font-size: 64px;
+    color: white;
 }
 
 * {background-color: #18141c}
