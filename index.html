@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" href="styles.css">
+<script src="script.js"></script>
 <head>
     <div></div>
     <h1>
@@ -8,24 +9,30 @@
         TRIVIA!!!
         </u>
     </h1>
+    
 </head>
 
 <body>
+    
     <div>
-        <p>DETTE ER ET SPØRGSMÅL</p>
+        
+        <h2 style="color: white; font-size: 60px; text-align: left;">
+            Points:
+        </h2>
+        <p id="question">DETTE ER ET SPØRGSMÅL</p>
         <div>
-            <button>
+            <button id="answer1" onclick="answerClicked()">
                 Answer 1
             </button>
-            <button>
+            <button id="answer2" onclick="answerClicked()">
                 Answer 2
             </button>
         </div>
         <div>
-            <button>
+            <button id="answer3" onclick="answerClicked()">
                 Answer 3
             </button>
-            <button>
+            <button id="answer4" onclick="answerClicked()">
                 Answer 4
             </button>
     	 </div>
