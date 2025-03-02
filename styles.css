@@ -1,24 +1,30 @@
 h1{
     text-align: center;
     color:crimson;
-    font-size: 150px;
+    font-size: 100px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-button{
+button {
     background-color: #04AA6D;
     border: none;
     color: white;
     padding: 20px;
     text-align: center;
-    font-size: 60px;
-    size: 96px;
-    width: 500px;
-    height: 250px;
+    font-size: 20px;
+    width: 400px;
+    height: 150px;
     margin: 16px;
     border-radius: 8px;
     cursor: pointer;
+    display: inline-block;
+    vertical-align: middle; 
+    white-space: normal; 
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
+
+
 
 button:hover{
     background-color: darkgreen;
@@ -28,7 +34,7 @@ div{
     text-align: center;
 }
 p{
-    font-size: 64px;
+    font-size: 30px;
     color: white;
 }
 
