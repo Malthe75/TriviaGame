@@ -1,9 +1,44 @@
 
 window.onload = function() {
-    handleJson("Thecategory");  // This runs when index.html loads
+    handleJson("Thecategory");
 };
 
-function answerClicked(){
+function answerClicked(event){
+    
+    const question = triviaData.results[questionNumber];
+
+    let correct_answer = decodeHtmlEntities(question.correct_answer);
+    let button_text = event.target.innerText;
+    
+    if(correct_answer == button_text){
+        ifCorrect();
+        console.log("is corerect!")
+    }
+    questionNumber++;
+    if(triviaData.results.length-1 >= questionNumber){
+    nextQuestion();
+    }
+
+}
+
+let points = 0;
+function ifCorrect(){
+    points++;
+    document.getElementById("points").innerHTML = "Points: " + points;
+}
+
+function showDiv(divId) {
+    document.getElementById('multipleDiv').style.display = 'none';
+    document.getElementById('booleanDiv').style.display = 'none';
+    
+    document.getElementById(divId).style.display = 'block';
+}
+
+var questionNumber = 0;
+var triviaData = [];
+
+function nextQuestion(){
+
     const question = triviaData.results[questionNumber];
 
     
@@ -29,23 +64,7 @@ function answerClicked(){
         }); 
     }
 
-    nextQuestion();
-
-}
-
-function showDiv(divId) {
-    document.getElementById('multipleDiv').style.display = 'none';
-    document.getElementById('booleanDiv').style.display = 'none';
-    
-    document.getElementById(divId).style.display = 'block';
-}
-
-var questionNumber = 0;
-var triviaData = [];
-
-function nextQuestion(){
     document.getElementById("question").innerHTML = triviaData.results[questionNumber].question;
-    questionNumber++;
 }
 
 
@@ -66,7 +85,7 @@ function handleJson(category){
           console.log(`Correct Answer: ${question.correct_answer}`);
         });
         
-      answerClicked();
+      nextQuestion();
       })
       .catch(error => {
         // Catch and log any errors
@@ -83,3 +102,9 @@ function whichUrl(category){
     return "https://opentdb.com/api.php?amount=10&category=31"
 }
 
+
+function decodeHtmlEntities(text) {
+    let parser = new DOMParser();
+    let decodedText = parser.parseFromString(text, "text/html").body.textContent;
+    return decodedText;
+}
