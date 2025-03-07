@@ -38,4 +38,9 @@ p{
     color: white;
 }
 
+.answerDiv{
+    color:red;
+    display: none;
+}
+
 * {background-color: #18141c}

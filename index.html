@@ -11,7 +11,7 @@
             </u>
         </h1>
         <h2 id="points" style="color: white; font-size: 60px; margin: 0px; position: absolute; top: 0; left: 20px;">
-            Points:
+            Points: 0
         </h2>
     </div>
     
@@ -20,9 +20,9 @@
 
 <body>
     
-    <div>
-        <p id="question">DETTE ER ET SPØRGSMÅL</p>
-        <div id="multipleDiv">
+    <div id="questions">
+        <p id="question"></p>
+        <div id="multipleDiv" class="answerDiv">
             <div>
                 <button id="answer1" onclick="answerClicked(event)">
                     Answer 1
@@ -40,7 +40,7 @@
                 </button>
             </div>
         </div>
-        <div id="booleanDiv">
+        <div id="booleanDiv" class="answerDiv">
             <button id="booleanAnswer1" onclick="answerClicked(event)">
                 Answer1
             </button>
@@ -48,6 +48,12 @@
                 Answer2
             </button>
         </div>
+    </div>
+
+    <div id="finishDiv" style="display:none;" >
+        <button id="finishButton" onclick="goToHome()">
+            Finish
+        </button>
     </div>
     
 

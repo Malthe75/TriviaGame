@@ -19,7 +19,7 @@ function answerClicked(event){
     if(triviaData.results.length-1 >= questionNumber){
     nextQuestion();
     }else{
-        window.location.href = "gameover.html";
+        onFinished();
     }
 
 }
@@ -110,4 +110,14 @@ function decodeHtmlEntities(text) {
     let parser = new DOMParser();
     let decodedText = parser.parseFromString(text, "text/html").body.textContent;
     return decodedText;
+}
+
+
+function onFinished(){
+    document.getElementById("questions").style.display = 'none';
+    document.getElementById("finishDiv").style.display = 'block';
+}
+
+function goToHome(){
+    window.location.href = "homepage.html";
 }
