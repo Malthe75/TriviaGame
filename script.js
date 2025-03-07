@@ -1,6 +1,7 @@
 
 window.onload = function() {
-    handleJson("Thecategory");
+    const params = new URLSearchParams(window.location.search);
+    handleJson(params.get("category"));
 };
 
 function answerClicked(event){
@@ -17,6 +18,8 @@ function answerClicked(event){
     questionNumber++;
     if(triviaData.results.length-1 >= questionNumber){
     nextQuestion();
+    }else{
+        window.location.href = "gameover.html";
     }
 
 }
@@ -73,7 +76,7 @@ function handleJson(category){
 
     fetch(url).then(response =>{
         if(!response.ok){
-            throw new Error("Network resposne was not ok")
+            throw new Error("Network response was not ok")
         }
         return response.json();
     })
@@ -99,7 +102,7 @@ function handleQuestion(){
 }
 
 function whichUrl(category){
-    return "https://opentdb.com/api.php?amount=10&category=31"
+    return `https://opentdb.com/api.php?amount=10&category=${category}`
 }
 
 
