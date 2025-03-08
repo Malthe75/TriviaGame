@@ -71,15 +71,35 @@ function nextQuestion(){
 }
 
 
+
+// Retries fetch after 3 seconds if there are too many requests to the API.
+const fetchTrivia = async (url) => {
+    const response = await fetch(url);
+    if(response.status === 429){
+        console.log(response);
+        const retryAfter = 3;
+        console.log(`Rate limited! Retrying in ${retryAfter} seconds.`)
+        await new Promise(resolve => setTimeout(resolve, retryAfter * 1000));
+        return fetchTrivia(url); 
+    }else{
+    if(!response.ok){
+        throw new Error(`HTTP error! Status: ${response.status}`)
+    }
+    return response.json();
+}
+}
+
 function handleJson(category){
     const url = whichUrl(category);
 
+    /* 
     fetch(url).then(response =>{
         if(!response.ok){
             throw new Error("Network response was not ok")
         }
         return response.json();
-    })
+    })*/
+   fetchTrivia(url)
     .then(data => {
         triviaData = data;
         // Example: Looping through the questions and logging them
